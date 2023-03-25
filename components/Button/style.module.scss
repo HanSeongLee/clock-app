@@ -1,0 +1,46 @@
+
+.button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &:has(.iconWrapper) {
+    .content {
+      margin-left: 17px;
+    }
+  }
+
+  &:not(:has(.iconWrapper)) {
+    .content {
+      flex: 1;
+    }
+  }
+
+  &.primary {
+    min-width: 115px;
+    min-height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 3.75px;
+    text-transform: uppercase;
+    color: var(--primary-color-light);
+    background: var(--white-color);
+    border-radius: 28px;
+  }
+
+  .iconWrapper {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+}
