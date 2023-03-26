@@ -10,7 +10,6 @@ import KeyValueTable from 'components/KeyValueTable';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
     open: boolean;
-    loading: boolean;
     quoteLoading: boolean;
     wallpaperClockInfo: WallpaperClockInfo;
     quote: {
@@ -22,8 +21,8 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const WallpaperClock: React.FC<IProps> = ({
-                                              open, loading, quoteLoading, wallpaperClockInfo, quote,
-                                              onQuoteRefresh, onMore, className, ...props
+                                              open, quoteLoading, wallpaperClockInfo, quote, onQuoteRefresh,
+                                              onMore, className, ...props
                                           }) => {
     const {
         isDaytime, time, greeting, timezoneName,
@@ -34,7 +33,6 @@ const WallpaperClock: React.FC<IProps> = ({
 
     return (
         <section className={cn(styles.wallpaperClock, {
-            [styles.loading]: loading,
             [styles.open]: open,
             [styles.nightTime]: !isDaytime,
         }, className)}
