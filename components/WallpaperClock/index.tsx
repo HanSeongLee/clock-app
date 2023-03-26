@@ -10,6 +10,7 @@ import KeyValueTable from 'components/KeyValueTable';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
     open: boolean;
+    loading: boolean;
     wallpaperClockInfo: WallpaperClockInfo;
     quote: {
         content: string;
@@ -20,8 +21,8 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const WallpaperClock: React.FC<IProps> = ({
-                                              open, wallpaperClockInfo, quote, onQuoteRefresh, onMore,
-                                              className, ...props
+                                              open, loading, wallpaperClockInfo, quote, onQuoteRefresh,
+                                              onMore, className, ...props
                                           }) => {
     const {
         isDaytime, time, greeting, timezoneName,
@@ -65,6 +66,7 @@ const WallpaperClock: React.FC<IProps> = ({
                     <button className={styles.refreshButton}
                             title={'Refresh'}
                             onClick={onQuoteRefresh}
+                            disabled={loading}
                     >
                         <RefreshIcon />
                     </button>
