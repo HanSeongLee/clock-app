@@ -8,6 +8,7 @@
 
   &:has(.iconWrapper) {
     .content {
+      display: inline-block;
       margin-left: 17px;
 
       @include media(">tablet") {
