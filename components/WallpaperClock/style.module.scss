@@ -74,6 +74,13 @@
     @include media(">tablet") {
       padding: 80px 13px 64px 64px;
     }
+
+    @include media(">desktop") {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 58px 0 98px;
+    }
   }
 
   .header {
@@ -124,6 +131,12 @@
 
     @include media(">tablet") {
       gap: 80px;
+    }
+
+    @include media(">desktop") {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
     }
   }
 
@@ -224,10 +237,18 @@
       padding-left: 64px;
     }
 
+    @include media(">desktop") {
+      padding-left: 165px;
+    }
+
     .table {
       flex: 1;
       border-spacing: 0 16px;
       border-collapse: separate;
+
+      @include media(">desktop") {
+        border-collapse: collapse;
+      }
 
       tbody {
         @include media(">tablet") {
@@ -235,12 +256,24 @@
           grid-template-columns: repeat(2, 1fr);
           gap: 46px 80px;
         }
+
+        @include media(">desktop") {
+          gap: 0 94px;
+        }
       }
 
       tr {
         @include media(">tablet") {
           display: flex;
           flex-direction: column;
+        }
+
+        @include media(">desktop") {
+          padding-bottom: 42px;
+
+          &:nth-child(odd) {
+            border-right: 1px solid rgba(var(--primary-rgb-color), 0.25);
+          }
         }
       }
 
@@ -257,6 +290,12 @@
           line-height: 28px;
           letter-spacing: 2.6px;
         }
+
+        @include media(">desktop") {
+          font-size: 15px;
+          line-height: 28px;
+          letter-spacing: 3px;
+        }
       }
 
       td {
@@ -269,6 +308,11 @@
           font-size: 40px;
           line-height: 48px;
           text-align: left;
+        }
+
+        @include media(">desktop") {
+          font-size: 56px;
+          line-height: 68px;
         }
       }
     }
