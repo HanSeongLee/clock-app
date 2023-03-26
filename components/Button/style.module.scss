@@ -1,3 +1,4 @@
+@import "styles/utils";
 
 .button {
   background: transparent;
@@ -8,6 +9,10 @@
   &:has(.iconWrapper) {
     .content {
       margin-left: 17px;
+
+      @include media(">tablet") {
+        margin-left: 21px;
+      }
     }
   }
 
@@ -31,6 +36,14 @@
     color: var(--primary-color-light);
     background: var(--white-color);
     border-radius: 28px;
+
+    @include media(">tablet") {
+      min-width: 146px;
+      min-height: 56px;
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: 5px;
+    }
   }
 
   .iconWrapper {
@@ -42,5 +55,11 @@
     background: var(--primary-color);
     border-radius: 50%;
     margin-right: 4px;
+
+    @include media(">tablet") {
+      width: 40px;
+      height: 40px;
+      margin-right: 9px;
+    }
   }
 }
