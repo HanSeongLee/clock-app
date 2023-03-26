@@ -1,11 +1,7 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import styles from './style.module.scss';
-import dynamic from 'next/dynamic';
 import axios from 'axios';
-
-const WallpaperClockContainer = dynamic(() => import('containers/WallpaperClockContainer'), {
-    ssr: false,
-});
+import WallpaperClockContainer from 'containers/WallpaperClockContainer';
 
 interface IProps {
     geolocation: IPGeolocation;
