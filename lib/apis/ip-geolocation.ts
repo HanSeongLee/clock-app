@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const getIpGeolocation = async () => {
-    const { data } = await axios.get('https://ip-api.com/json/');
+    const { data } = await axios.get('/api/ip-geolocation');
     return data as IPGeolocation;
 };
