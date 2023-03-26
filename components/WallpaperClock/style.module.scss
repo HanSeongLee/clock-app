@@ -18,6 +18,12 @@
     content: "";
   }
 
+  &.loading {
+    .container {
+      display: none;
+    }
+  }
+
   &.open {
     .header {
       max-height: 0px;

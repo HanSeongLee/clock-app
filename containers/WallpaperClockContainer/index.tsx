@@ -7,10 +7,23 @@ import { getRandomQuote } from 'lib/apis/quotable';
 
 const WallpaperClockContainer: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false);
-    const [loading, setLoading] = useState<boolean>(false)
-    const [geoLocation, setGeoLocation] = useState<IPGeolocation | null>(null);
-    const [wallpaperClockInfo, setWallpaperClockInfo] = useState<WallpaperClockInfo | null>(null);
-    const [quote, setQuote] = useState<{ content: string, author: string } | null>(null);
+    const [loading, setLoading] = useState<boolean>(true)
+    const [quoteLoading, setQuoteLoading] = useState<boolean>(false)
+    const [geoLocation, setGeoLocation] = useState<IPGeolocation>();
+    const [wallpaperClockInfo, setWallpaperClockInfo] = useState<WallpaperClockInfo>({
+        dayOfWeek: 0,
+        dayOfYear: 0,
+        greeting: '',
+        isDaytime: true,
+        location: '',
+        time: '',
+        timezoneName: { abbreviation: '', fullName: '' },
+        weekNumber: 0
+    });
+    const [quote, setQuote] = useState<{ content: string, author: string }>({
+        author: '',
+        content: ''
+    });
 
     const updateTime = async () => {
         if (!geoLocation) {
@@ -48,6 +61,7 @@ const WallpaperClockContainer: React.FC = () => {
             author,
         });
         await updateTime();
+        setLoading(false);
     };
 
     const onToggleOpen = () => {
@@ -55,13 +69,13 @@ const WallpaperClockContainer: React.FC = () => {
     };
 
     const onQuoteRefresh = async () => {
-        setLoading(true);
+        setQuoteLoading(true);
         const { content, author } = await getRandomQuote();
         setQuote({
             content,
             author,
         });
-        setLoading(false);
+        setQuoteLoading(false);
     }
 
     useInterval(updateTime, 1000, false);
@@ -70,13 +84,10 @@ const WallpaperClockContainer: React.FC = () => {
         initialize();
     }, []);
 
-    if (!geoLocation || !wallpaperClockInfo || !quote) {
-        return <></>;
-    }
-
     return (
         <WallpaperClock open={open}
                         loading={loading}
+                        quoteLoading={quoteLoading}
                         wallpaperClockInfo={wallpaperClockInfo}
                         quote={quote}
                         onQuoteRefresh={onQuoteRefresh}
