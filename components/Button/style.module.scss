@@ -6,23 +6,6 @@
   outline: none;
   cursor: pointer;
 
-  &:has(.iconWrapper) {
-    .content {
-      display: inline-block;
-      margin-left: 17px;
-
-      @include media(">tablet") {
-        margin-left: 21px;
-      }
-    }
-  }
-
-  &:not(:has(.iconWrapper)) {
-    .content {
-      flex: 1;
-    }
-  }
-
   &.primary {
     min-width: 115px;
     min-height: 39px;
@@ -45,6 +28,11 @@
       line-height: 28px;
       letter-spacing: 5px;
     }
+  }
+
+  .content {
+    flex: 1;
+    padding-left: 10px;
   }
 
   .iconWrapper {
