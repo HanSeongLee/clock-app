@@ -59,8 +59,7 @@ const DefaultHead: React.FC<IProps> = ({ title, description, url, ogi }) => {
             <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;800&display=swap"
-                  rel="preload"
-                  as="style"
+                  rel="stylesheet"
                   crossOrigin="anonymous"
             />
         </>
